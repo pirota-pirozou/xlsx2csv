@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "xlsx2csv": {
+      "commandName": "Project",
+      "commandLineArgs": "string.xlsx string",
+      "workingDirectory": "$(ProjectDir)"
+    }
+  }
+}
