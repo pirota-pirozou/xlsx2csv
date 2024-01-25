@@ -41,7 +41,7 @@ namespace xlsx2csv
 			string ret = "";
 			if (cell != null)
 			{
-				ret = cell.ToString();
+				ret = cell.ToString().Replace(",", "%2C");
 			}
 			return ret;
 		}
