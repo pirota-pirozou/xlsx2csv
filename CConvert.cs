@@ -76,6 +76,26 @@ namespace xlsx2csv
 			return BitConverter.ToInt16(bytes, 0);
 		}
 
+		/// <summary>
+		/// パスセパレータをプラットフォーム対応に置換する
+		/// </summary>
+		/// <param name="path">パス</param>
+		/// <returns>置換後のパス</returns>
+		private string ReplacePathSeparator(string path)
+		{
+			char ch = Path.DirectorySeparatorChar;
+			if (ch == '/')
+			{
+				return path.Replace('\\', ch);
+			}
+			else
+			if (ch == '\\')
+			{
+				return path.Replace('/', ch);
+			}
+
+			return path;
+		}
 
 		/// <summary>
 		/// 変換処理
@@ -86,6 +106,9 @@ namespace xlsx2csv
 		{
 			int columnCount = 0;
 			List<string> csvlist = new List<string>();
+
+			infile = ReplacePathSeparator(infile);
+			outfile = ReplacePathSeparator(outfile);
 
 			// 入力ファイル存在チェック
 			if (!File.Exists(infile))

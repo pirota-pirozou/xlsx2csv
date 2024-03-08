@@ -23,7 +23,7 @@ namespace xlsx2csv
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("xlsx2csv by Pirota");
+			Console.WriteLine("xlsx2csv ver 0.0.2 by Pirota");
 			string ext = null;
 			string infile = null;   // 入力ファイル名
 			string outfile = null;   // 出力ファイル名
@@ -33,7 +33,7 @@ namespace xlsx2csv
 			{
 				char ch = args[i][0];
 				// スイッチ判定
-				if ((ch == '-' || ch == '/') && args[i].Length >= 2)
+				if ((ch == '-') && args[i].Length >= 2)
 				{
 					char opt = args[i][1];
 
